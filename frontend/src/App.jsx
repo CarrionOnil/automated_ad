@@ -1,10 +1,10 @@
-
-
 // File: src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/sidebar';
 import Dashboard from './pages/dashboard';
-import CampaignBuilder from './pages/CampaignBuilder'; // make sure this file exists
+import CampaignBuilder from './pages/CampaignBuilder';
+import CampaignList from './pages/CampaignList';
+import Settings from './pages/Settings';
 
 export default function App() {
   return (
@@ -15,9 +15,12 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/campaigns" element={<CampaignBuilder />} />
+            <Route path="/campaigns/list" element={<CampaignList />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
       </div>
     </Router>
   );
 }
+

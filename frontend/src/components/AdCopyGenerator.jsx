@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-const AdCopyGenerator = ({ productInfo, targetAudience, goals }) => {
-  const [adCopy, setAdCopy] = useState('');
+const AdCopyGenerator = ({ productInfo, targetAudience, goals, setAdCopy }) => {
   const [loading, setLoading] = useState(false);
+  const [generatedCopy, setGeneratedCopy] = useState('');
 
-  const generateAdCopy = async () => {
+  const generate = async () => {
     setLoading(true);
     const response = await fetch('/api/generate-copy', {
       method: 'POST',
@@ -12,22 +12,25 @@ const AdCopyGenerator = ({ productInfo, targetAudience, goals }) => {
       body: JSON.stringify({ productInfo, targetAudience, goals })
     });
     const data = await response.json();
+    setGeneratedCopy(data.copy);
     setAdCopy(data.copy);
     setLoading(false);
   };
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow">
+    <div className="bg-white p-6 rounded-xl shadow space-y-4">
+      <h2 className="text-xl font-semibold">4. Generate Ad Copy</h2>
       <button
-        onClick={generateAdCopy}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        onClick={generate}
+        disabled={loading}
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
       >
         {loading ? 'Generating...' : 'Generate Ad Copy'}
       </button>
-      {adCopy && (
-        <div className="mt-4 p-3 border rounded bg-gray-50">
-          <h3 className="font-semibold">Generated Ad Copy:</h3>
-          <p>{adCopy}</p>
+      {generatedCopy && (
+        <div className="mt-4 p-4 bg-gray-50 border rounded">
+          <h3 className="font-medium">Generated Copy:</h3>
+          <p>{generatedCopy}</p>
         </div>
       )}
     </div>

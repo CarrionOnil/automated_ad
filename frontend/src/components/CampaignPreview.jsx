@@ -1,10 +1,12 @@
 const CampaignPreview = ({ adCopy, productInfo, targetAudience, goals }) => (
-  <div className="p-4 bg-white rounded-xl shadow mt-4">
-    <h2 className="text-xl font-bold mb-2">Campaign Preview</h2>
-    <p><strong>Ad Copy:</strong> {adCopy}</p>
-    <p><strong>Product:</strong> {productInfo.name}</p>
-    <p><strong>Audience:</strong> {targetAudience.demographics}</p>
-    <p><strong>Goals:</strong> {goals.objective}</p>
+  <div className="bg-white p-6 rounded-xl shadow space-y-4">
+    <h2 className="text-xl font-semibold">Campaign Preview</h2>
+    <div><strong>Ad Copy:</strong> {adCopy || 'Not generated yet'}</div>
+    <div><strong>Product:</strong> {productInfo.name} – {productInfo.features}</div>
+    <div><strong>Description:</strong> {productInfo.description}</div>
+    <div><strong>Audience:</strong> {targetAudience.ageRange}, {targetAudience.gender}, {targetAudience.location}</div>
+    <div><strong>Interests:</strong> {targetAudience.interests}</div>
+    <div><strong>Goals:</strong> {goals.objective} – ${goals.budget} over {goals.duration}</div>
   </div>
 );
 
