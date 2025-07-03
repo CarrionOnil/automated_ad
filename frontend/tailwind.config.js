@@ -1,18 +1,21 @@
-// module.exports = {
-//   purge: [],
-//   darkMode: false, // or 'media' or 'class'
+// // tailwind.config.js
+// export default {
+//   content: [
+//     "./index.html",
+//     "./src/**/*.{js,ts,jsx,tsx}",
+//   ],
 //   theme: {
-//     extend: {},
-//   },
-//   variants: {
 //     extend: {},
 //   },
 //   plugins: [],
 // }
 
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],  // 👈 this tells Tailwind where to look
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     extend: {},
   },

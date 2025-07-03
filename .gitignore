@@ -1,0 +1,51 @@
+# Root .gitignore
+
+# Node
+node_modules/
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*
+
+# Editor & system
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Vite cache
+.cache/
+*.local
+
+# Frontend build artifacts (if double-built)
+frontend/dist/
+frontend/node_modules/
+
+backend/__pycache__/
+backend/*.pyc
+backend/env/
+backend/.venv/
+backend/venv/
+backend/node_modules/
+backend/.DS_Store
+
+# Python virtual environments
+venv/
+.venv/
+backend/venv/
+backend/.venv/
+__pycache__/
+*.pyc
+
+# virtualenvs
+venv/
+.venv/
+backend/venv/
+backend/.venv/
